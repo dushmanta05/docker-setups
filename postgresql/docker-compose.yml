@@ -14,12 +14,14 @@ services:
 
   adminer:
     container_name: adminer_container
-    image: adminer
+    image: adminer:latest
     restart: unless-stopped
     ports:
       - '8080:8080'
     depends_on:
       - postgres
+    volumes:
+      - ./adminer.css:/var/www/html/adminer.css
 
 volumes:
   postgres_data:
